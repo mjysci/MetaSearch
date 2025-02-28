@@ -1,0 +1,13 @@
+{
+  "name": "metasearch",
+  "version": "1.0.0",
+  "description": "A Chrome extension for enhanced web search capabilities",
+  "scripts": {
+    "build": "rspack build --mode=production",
+    "package": "npm run build && node scripts/package.js"
+  },
+  "devDependencies": {
+    "@rspack/cli": "^1.2.6",
+    "adm-zip": "^0.5.10"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "MetaSearch",
+  "version": "1.0.0",
+  "description": "Integrate user's private search results across multiple search engines",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://api.hypothes.is/*",
+    "https://www.google.com/*",
+    "https://www.bing.com/*",
+    "https://duckduckgo.com/*",
+    "https://www.baidu.com/*",
+    "https://search.brave.com/*",
+    "https://yandex.com/*",
+    "https://*/api/v1/*",
+    "https://*/search*"
+  ],
+  "action": {
+    "default_title": "MetaSearch"
+  },
+  "content_scripts": [{
+    "matches": [
+      "https://www.google.com/search*",
+      "https://www.bing.com/search*",
+      "https://duckduckgo.com/*",
+      "https://www.baidu.com/s*",
+      "https://search.brave.com/search*",
+      "https://yandex.com/search*",
+      "https://*/search*"
+    ],
+    "js": ["dist/bundle.js"],
+    "css": ["src/styles/styles.css"]
+  }],
+  "icons": {
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "options_page": "src/options.html"
+}
