@@ -27,21 +27,45 @@ const fetchLinkwardenItems = async (query) => {
     }
 
     try {
-        const response = await fetch(
-            `${settings.linkwardenUrl}/api/v1/links?searchByName=true&searchByUrl=true&searchByDescription=true&searchByTextContent=true&searchByTags=true&searchQueryString=${encodeURIComponent(query)}`,
-            {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${settings.linkwardenApiToken}`
+        // Determine if we're in Firefox (which has stricter CSP)
+        const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
+        
+        let data;
+        const requestUrl = `${settings.linkwardenUrl}/api/v1/links?searchByName=true&searchByUrl=true&searchByDescription=true&searchByTextContent=true&searchByTags=true&searchQueryString=${encodeURIComponent(query)}`;
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${settings.linkwardenApiToken}`
+            },
+            mode: 'cors'
+        };
+        
+        if (isFirefox) {
+            // In Firefox, use the background script to make the request
+            // This avoids CSP restrictions of the page
+            try {
+                // Send a message to the background script to make the request
+                const response = await browserAPI.runtime.sendMessage({
+                    action: 'fetchLinkwarden',
+                    url: requestUrl,
+                    options: requestOptions
+                });
+                
+                if (response.success) {
+                    data = response.data;
+                } else {
+                    throw new Error(response.error || 'Failed to fetch data from background script');
                 }
+            } catch (error) {
+                console.error('Background script request failed', error);
+                throw error; // Don't try fallbacks in Firefox - they will be blocked by CSP
             }
-        );
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        } else {
+            // In Chrome and other browsers, use fetch directly
+            const response = await fetch(requestUrl, requestOptions);
+            data = await response.json();
         }
 
-        const data = await response.json();
         totalLinkwardenItems = data.response.map(constructLinkwardenItem);
         return { items: totalLinkwardenItems };
     } catch (err) {

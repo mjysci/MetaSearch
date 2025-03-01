@@ -13,7 +13,7 @@ const createChromePackage = () => {
         const distFiles = fs.readdirSync(distDir);
         distFiles.forEach(file => {
             if (!file.endsWith('.zip')) {
-                zip.addLocalFile(path.join(distDir, file));
+                zip.addLocalFile(path.join(distDir, file), 'dist');
             }
         });
     }
@@ -61,7 +61,7 @@ const createFirefoxPackage = () => {
     console.log('Creating Firefox package...');
     const zip = new AdmZip();
 
-    // Add dist directory contents to dist folder
+    // Add dist directory contents
     const distDir = path.join(__dirname, '../dist');
     if (fs.existsSync(distDir)) {
         const distFiles = fs.readdirSync(distDir);
@@ -72,8 +72,11 @@ const createFirefoxPackage = () => {
         });
     }
 
-    // Add manifest.json (with Firefox settings)
-    zip.addLocalFile(path.join(__dirname, '../manifest.json'));
+    // Add manifest.firefox.json as manifest.json
+    zip.addLocalFile(path.join(__dirname, '../manifest.firefox.json'), '', 'manifest.json');
+
+    // Add background script to root directory
+    zip.addLocalFile(path.join(__dirname, '../src/background.js'), '', 'background.js');
 
     // Add CSS files from src/styles
     const stylesDir = path.join(__dirname, '../src/styles');

@@ -162,7 +162,7 @@ const handleSearchResults = async (query) => {
             if (contentDiv) {
                 contentDiv.innerHTML = '<p>Please configure your Hypothes.is username and API token.</p>';
             }
-            openSettingsPanel();
+            browserAPI.runtime.openOptionsPage();
             return;
         }
         if (result.error === 'fetch_failed') {
@@ -182,7 +182,8 @@ const handleSearchResults = async (query) => {
             if (contentDiv) {
                 contentDiv.innerHTML = '<p>Please configure your Linkwarden URL and API token.</p>';
             }
-            openSettingsPanel();
+            // Open options page instead of using undefined openSettingsPanel function
+            browserAPI.runtime.openOptionsPage();
             return;
         }
         if (result.error === 'fetch_failed') {

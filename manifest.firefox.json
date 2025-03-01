@@ -1,16 +1,17 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "MetaSearch",
   "version": "1.1.1",
   "description": "Integrate user's private search results across multiple search engines",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "metasearch@mjyai.com",
+      "strict_min_version": "58.0"
+    }
+  },
   "permissions": [
     "storage",
-    "activeTab"
-  ],
-  "background": {
-    "service_worker": "src/background.js"
-  },
-  "host_permissions": [
+    "activeTab",
     "https://api.hypothes.is/*",
     "https://www.google.com/*",
     "https://www.bing.com/*",
@@ -21,8 +22,15 @@
     "https://*/api/v1/*",
     "https://*/search*"
   ],
-  "action": {
-    "default_title": "MetaSearch"
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_title": "MetaSearch",
+    "default_icon": {
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
   },
   "content_scripts": [{
     "matches": [
@@ -41,5 +49,8 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "options_page": "src/options.html"
+  "options_ui": {
+    "page": "src/options.html",
+    "browser_style": true
+  }
 }
