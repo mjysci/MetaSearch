@@ -6,8 +6,11 @@ let currentPage = 1;
 let totalItems = [];
 const ITEMS_PER_PAGE = 10;
 
+// Use browser API for cross-browser compatibility
+const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
+
 const getEnabledServices = async () => {
-    const result = await chrome.storage.sync.get({
+    const result = await browserAPI.storage.sync.get({
         enableHypothesis: false,
         enableLinkwarden: false,
         hypothesisPriority: 1,
@@ -201,7 +204,7 @@ const handleSearchResults = async (query) => {
     }
 
     // Get sorting method from storage
-    const { sortingMethod = 'interleaving' } = await chrome.storage.sync.get({ sortingMethod: 'interleaving' });
+    const { sortingMethod = 'interleaving' } = await browserAPI.storage.sync.get({ sortingMethod: 'interleaving' });
     
     // Create priorities object for sorting
     const priorities = {

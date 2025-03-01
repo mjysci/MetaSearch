@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const tabs = document.querySelectorAll('.tab');
     const tabContents = document.querySelectorAll('.tab-content');
 
+    // Use browser API for cross-browser compatibility
+    const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
+
     // Tab switching functionality
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
@@ -15,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     // Load existing settings
-    const settings = await chrome.storage.sync.get({
+    const settings = await browserAPI.storage.sync.get({
         enableHypothesis: false,
         enableLinkwarden: false,
         hypothesisUsername: '',
@@ -91,7 +94,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const linkwardenEnabled = document.getElementById('enableLinkwarden').checked;
 
         // Save settings
-        await chrome.storage.sync.set({
+        await browserAPI.storage.sync.set({
             enableHypothesis: hypothesisEnabled,
             enableLinkwarden: linkwardenEnabled,
             hypothesisUsername: document.getElementById('username').value,

@@ -2,8 +2,11 @@
 let totalHypothesisItems = [];
 const API_URL = 'https://api.hypothes.is/api/search';
 
+// Use browser API for cross-browser compatibility
+const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
+
 const getHypothesisSettings = async () => {
-    const result = await chrome.storage.sync.get({
+    const result = await browserAPI.storage.sync.get({
         hypothesisUsername: '',
         hypothesisApiToken: '',
         hypothesisExcludeTags: '',
@@ -50,19 +53,24 @@ const fetchHypothesisResults = async (query) => {
             if (!hasExcludedTag) {
                 const constructedItem = constructHypothesisItem(item);
                 if (settings.mergeByUri) {
-                    uniqueUri.set(item.uri, constructedItem);
+                    if (!uniqueUri.has(item.uri)) {
+                        uniqueUri.set(item.uri, constructedItem);
+                    }
                 } else {
                     totalHypothesisItems.push(constructedItem);
                 }
             }
         });
 
-        totalHypothesisItems = settings.mergeByUri ? Array.from(uniqueUri.values()) : totalHypothesisItems;
+        if (settings.mergeByUri) {
+            totalHypothesisItems = Array.from(uniqueUri.values());
+        }
+
         return { items: totalHypothesisItems };
     } catch (err) {
-        console.error('Failed to fetch results', err);
+        console.error('Failed to fetch annotations', err);
         return { error: 'fetch_failed' };
     }
 };
 
-export { fetchHypothesisResults, getHypothesisSettings };
+export { fetchHypothesisResults };

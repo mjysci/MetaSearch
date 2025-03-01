@@ -1,6 +1,9 @@
 // Linkwarden integration module
 let totalLinkwardenItems = [];
 
+// Use browser API for cross-browser compatibility
+const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
+
 const constructLinkwardenItem = (item) => {
     return {
         uri: item.url,
@@ -14,7 +17,7 @@ const constructLinkwardenItem = (item) => {
 
 // Fetch items from Linkwarden API
 const fetchLinkwardenItems = async (query) => {
-    const settings = await chrome.storage.sync.get({
+    const settings = await browserAPI.storage.sync.get({
         linkwardenUrl: 'https://cloud.linkwarden.app',
         linkwardenApiToken: ''
     });
