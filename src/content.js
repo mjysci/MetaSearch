@@ -182,7 +182,6 @@ const handleSearchResults = async (query) => {
             if (contentDiv) {
                 contentDiv.innerHTML = '<p>Please configure your Linkwarden URL and API token.</p>';
             }
-            // Open options page instead of using undefined openSettingsPanel function
             browserAPI.runtime.openOptionsPage();
             return;
         }
