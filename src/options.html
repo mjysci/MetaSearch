@@ -265,9 +265,44 @@
         }
 
         .help-text {
-            color: var(--text-secondary);
+            display: none;
+        }
+
+        .label-with-help {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .help-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--text-secondary);
+            color: var(--container-bg);
+            font-size: 12px;
+            cursor: help;
+            position: relative;
+        }
+
+        .help-icon:hover::after {
+            content: attr(data-help);
+            position: absolute;
+            left: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--text-secondary);
+            color: var(--container-bg);
+            padding: 8px 12px;
+            border-radius: 4px;
             font-size: 14px;
-            margin-top: 4px;
+            width: max-content;
+            max-width: 300px;
+            z-index: 1000;
+            white-space: normal;
         }
         
         /* Radio button group styles for theme selection */
@@ -317,8 +352,14 @@
                 <table class="services-table">
                     <thead>
                         <tr>
-                            <th>Enable</th>
-                            <th>Priority</th>
+                            <th>
+                                Enable
+                                <span class="help-icon" data-help="Enable or disable search integrations">?</span>
+                            </th>
+                            <th>
+                                Priority
+                                <span class="help-icon" data-help="Priority: Higher number means results will appear first (1-10)">?</span>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -326,7 +367,7 @@
                             <td>
                                 <div class="checkbox-container">
                                     <input type="checkbox" id="enableHypothesis">
-                                    <label for="enableHypothesis">Hypothesis Integration</label>
+                                    <label for="enableHypothesis">Hypothesis</label>
                                 </div>
                             </td>
                             <td>
@@ -337,7 +378,7 @@
                             <td>
                                 <div class="checkbox-container">
                                     <input type="checkbox" id="enableLinkwarden">
-                                    <label for="enableLinkwarden">Linkwarden Integration</label>
+                                    <label for="enableLinkwarden">Linkwarden</label>
                                 </div>
                             </td>
                             <td>
@@ -346,66 +387,83 @@
                         </tr>
                     </tbody>
                 </table>
-                <p class="help-text">Enable or disable search integrations. Priority: Higher number means results will appear first (1-10)</p>
 
                 <div class="sorting-method">
+                    <div class="label-with-help">
                     <label for="sortingMethod">Sorting Method</label>
-                    <select id="sortingMethod">
-                        <option value="interleaving" selected>Interleaving (a1, a1, b2, b2...)</option>
-                        <option value="compound">Compound (a1, a2..., b1, b2...)</option>
-                    </select>
-                    <p class="help-text">Choose how to sort results from different services based on their priorities</p>
+                    <span class="help-icon" data-help="Choose how to sort results from different services based on their priorities">?</span>
+                </div>
+                <select id="sortingMethod">
+                    <option value="interleaving" selected>Interleaving (a1, a1, b2, b2...)</option>
+                    <option value="compound">Compound (a1, a2..., b1, b2...)</option>
+                </select>
                 </div>
                 
                 <div class="theme-settings">
+                    <div class="label-with-help">
                     <label for="themeMode">Theme Mode</label>
-                    <select id="themeMode" class="sorting-method select">
-                        <option value="system">Follow System</option>
-                        <option value="light">Light</option>
-                        <option value="dark">Dark</option>
-                    </select>
-                    <p class="help-text">Choose how the extension's appearance should be determined</p>
+                    <span class="help-icon" data-help="Choose how the extension's appearance should be determined">?</span>
+                </div>
+                <select id="themeMode" class="sorting-method select">
+                    <option value="system">Follow System</option>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
                 </div>
             </div>
 
             <!-- Hypothesis Settings Tab -->
             <div id="hypothesis" class="tab-content">
-                <label for="username">Username (*)</label>
+                <div class="label-with-help">
+                    <label for="username">Username (*)</label>
+                    <span class="help-icon" data-help="Your Hypothes.is username">?</span>
+                </div>
                 <input type="text" id="username" required>
-                <p class="help-text">Your Hypothes.is username</p>
 
-                <label for="apiToken">API Token (*)</label>
+                <div class="label-with-help">
+                    <label for="apiToken">API Token (*)</label>
+                    <span class="help-icon" data-help="Your Hypothes.is API token. You can find this in your Hypothes.is developer settings.">?</span>
+                </div>
                 <input type="text" id="apiToken" required>
-                <p class="help-text">Your Hypothes.is API token. You can find this in your Hypothes.is developer settings.</p>
 
-                <label for="hypothesisColor">Highlight Color</label>
+                <div class="label-with-help">
+                    <label for="hypothesisColor">Highlight Color</label>
+                    <span class="help-icon" data-help="Choose a color for Hypothesis search results">?</span>
+                </div>
                 <input type="color" id="hypothesisColor" value="#bd1c2b">
-                <p class="help-text">Choose a color for Hypothesis search results</p>
 
-                <label for="excludeTags">Exclude Tags (comma-separated)</label>
+                <div class="label-with-help">
+                    <label for="excludeTags">Exclude Tags (comma-separated)</label>
+                    <span class="help-icon" data-help="Annotations with these tags will be excluded from search results">?</span>
+                </div>
                 <input type="text" id="excludeTags" placeholder="tag1, tag2, tag3">
-                <p class="help-text">Annotations with these tags will be excluded from search results</p>
 
                 <div class="checkbox-container">
                     <input type="checkbox" id="mergeByUri">
                     <label for="mergeByUri">Merge Annotations By URI</label>
+                    <span class="help-icon" data-help="When enabled, multiple annotations from the same URL will be merged into a single result">?</span>
                 </div>
-                <p class="help-text">When enabled, multiple annotations from the same URL will be merged into a single result</p>
             </div>
 
             <!-- Linkwarden Settings Tab -->
             <div id="linkwarden" class="tab-content">
-                <label for="linkwardenUrl">Linkwarden URL (*)</label>
+                <div class="label-with-help">
+                    <label for="linkwardenUrl">Linkwarden URL (*)</label>
+                    <span class="help-icon" data-help="Your Linkwarden instance URL (e.g., https://cloud.linkwarden.app)">?</span>
+                </div>
                 <input type="text" id="linkwardenUrl" required>
-                <p class="help-text">Your Linkwarden instance URL (e.g., https://cloud.linkwarden.app)</p>
 
-                <label for="linkwardenApiToken">API Token (*)</label>
+                <div class="label-with-help">
+                    <label for="linkwardenApiToken">API Token (*)</label>
+                    <span class="help-icon" data-help="Your Linkwarden API token">?</span>
+                </div>
                 <input type="text" id="linkwardenApiToken" required>
-                <p class="help-text">Your Linkwarden API token</p>
 
-                <label for="linkwardenColor">Highlight Color</label>
+                <div class="label-with-help">
+                    <label for="linkwardenColor">Highlight Color</label>
+                    <span class="help-icon" data-help="Choose a color for Linkwarden search results">?</span>
+                </div>
                 <input type="color" id="linkwardenColor" value="#2e7d32">
-                <p class="help-text">Choose a color for Linkwarden search results</p>
             </div>
 
 
