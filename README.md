@@ -60,7 +60,7 @@ If you encounter any issues or have questions, please:
 
 ## Acknowledgments
 
-- [NajmunNahar](https://www.flaticon.com/authors/najmunnahar) for the icon design
+- [Freepik](https://www.freepik.com/) for the icon design
 - [Hypothesis](https://web.hypothes.is/) for their annotation platform
 - [Linkwarden](https://linkwarden.app/) for bookmark management integration
 - All contributors who have helped improve this project
