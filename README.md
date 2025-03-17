@@ -14,21 +14,12 @@ MetaSearch is a powerful browser extension that seamlessly integrates search res
 
 ## Installation
 
-### Chrome
-1. Load the extension in Chrome:
-   - Open Chrome and go to `chrome://extensions/`
-   - Enable "Developer mode"
-   - Click "Load unpacked"
-   - Select the root directory of the project
+Firefox: [Mozilla Addon Store](https://addons.mozilla.org/en-US/firefox/addon/metasearch-ai/)
 
-### Firefox
-1. Load the extension in Firefox:
-   - Open Firefox and go to `about:debugging#/runtime/this-firefox`
-   - Click "Load Temporary Add-on"
-   - Select the manifest.json file in the project directory
-   - For permanent installation, package the extension using `npm run package` and install the generated `metasearch-firefox.zip` file through `about:addons`
-2. Right-click the extension icon in the browser toolbar, then select Options to open Settings.
-3. Enable the integrations you need, and configure the necessary information such as API tokens on the relevant tabs. Save Settings.
+Chrome: [Microsoft Edge Addons](https://microsoftedge.microsoft.com/addons/detail/metasearch/mboclednjfkoandegegjfkpofmoogpkb)
+
+1. Right-click the extension icon in the browser toolbar, then select Options to open Settings.
+2. Enable the integrations you need, and configure the necessary information such as API tokens on the relevant tabs. Save Settings.
 
 ## Usage
 
