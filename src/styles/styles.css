@@ -30,6 +30,8 @@
     margin-bottom: 16px !important;
     font-family: Roboto, Arial, sans-serif !important;
     transition: box-shadow 0.3s ease !important;
+    min-width: 360px !important;
+    max-width: 450px !important;
 }
 
 #results-panel:hover {
