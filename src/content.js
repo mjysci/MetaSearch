@@ -56,9 +56,10 @@ const getCurrentSearchEngine = () => {
 };
 
 const createResultsContainer = () => {
+    const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
     const container = document.createElement('div');
     container.id = 'results-panel';
-    container.innerHTML = '<h3>MetaSearch</h3><div id="items-content"><div class="loading">Loading results...</div></div>';
+    container.innerHTML = `<h3>${browserAPI.i18n.getMessage('extensionName')}</h3><div id="items-content"><div class="loading">${browserAPI.i18n.getMessage('loading')}</div></div>`;
     return container;
 };
 

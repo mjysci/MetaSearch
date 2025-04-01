@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>MetaSearch Settings</title>
+    <title data-i18n="settingsTitle">__MSG_settingsTitle__</title>
     <style>
         :root {
             --bg-color: #ffffff;
@@ -339,11 +339,11 @@
 </head>
 <body>
     <div class="settings-container">
-        <h1>MetaSearch Settings</h1>
+        <h1 data-i18n="settingsTitle">__MSG_settingsTitle__</h1>
         <div class="tabs">
-            <button class="tab active" data-tab="services">Prefs.</button>
-            <button class="tab" data-tab="hypothesis">Hypothesis</button>
-            <button class="tab" data-tab="linkwarden">Linkwarden</button>
+            <button class="tab active" data-tab="services" data-i18n="tabPreferences">__MSG_tabPreferences__</button>
+            <button class="tab" data-tab="hypothesis" data-i18n="tabHypothesis">__MSG_tabHypothesis__</button>
+            <button class="tab" data-tab="linkwarden" data-i18n="tabLinkwarden">__MSG_tabLinkwarden__</button>
         </div>
 
         <form id="settingsForm">
@@ -353,12 +353,12 @@
                     <thead>
                         <tr>
                             <th>
-                                Enable
-                                <span class="help-icon" data-help="Enable or disable search integrations">?</span>
+                                <span data-i18n="enable">__MSG_enable__</span>
+                                <span class="help-icon" data-help="__MSG_enableHelpText__" data-i18n-help="enableHelpText">?</span>
                             </th>
                             <th>
-                                Priority
-                                <span class="help-icon" data-help="Priority: Higher number means results will appear first (1-10)">?</span>
+                                <span data-i18n="priority">__MSG_priority__</span>
+                                <span class="help-icon" data-help="__MSG_priorityHelpText__" data-i18n-help="priorityHelpText">?</span>
                             </th>
                         </tr>
                     </thead>
@@ -390,24 +390,24 @@
 
                 <div class="sorting-method">
                     <div class="label-with-help">
-                    <label for="sortingMethod">Sorting Method</label>
-                    <span class="help-icon" data-help="Choose how to sort results from different services based on their priorities">?</span>
+                    <label for="sortingMethod" data-i18n="sortingMethod">__MSG_sortingMethod__</label>
+                    <span class="help-icon" data-help="__MSG_sortingMethodHelpText__" data-i18n-help="sortingMethodHelpText">?</span>
                 </div>
                 <select id="sortingMethod">
-                    <option value="interleaving" selected>Interleaving (a1, a1, b2, b2...)</option>
-                    <option value="compound">Compound (a1, a2..., b1, b2...)</option>
+                    <option value="interleaving" selected data-i18n="interleavingSorting">__MSG_interleavingSorting__</option>
+                    <option value="compound" data-i18n="compoundSorting">__MSG_compoundSorting__</option>
                 </select>
                 </div>
                 
                 <div class="theme-settings">
                     <div class="label-with-help">
-                    <label for="themeMode">Theme Mode</label>
-                    <span class="help-icon" data-help="Choose how the extension's appearance should be determined">?</span>
+                    <label for="themeMode" data-i18n="themeMode">__MSG_themeMode__</label>
+                    <span class="help-icon" data-help="__MSG_themeModeHelpText__" data-i18n-help="themeModeHelpText">?</span>
                 </div>
                 <select id="themeMode" class="sorting-method select">
-                    <option value="system">Follow System</option>
-                    <option value="light">Light</option>
-                    <option value="dark">Dark</option>
+                    <option value="system" data-i18n="themeSystem">__MSG_themeSystem__</option>
+                    <option value="light" data-i18n="themeLight">__MSG_themeLight__</option>
+                    <option value="dark" data-i18n="themeDark">__MSG_themeDark__</option>
                 </select>
                 </div>
             </div>
@@ -415,60 +415,60 @@
             <!-- Hypothesis Settings Tab -->
             <div id="hypothesis" class="tab-content">
                 <div class="label-with-help">
-                    <label for="username">Username (*)</label>
-                    <span class="help-icon" data-help="Your Hypothes.is username">?</span>
+                    <label for="username" data-i18n="username">__MSG_username__</label>
+                    <span class="help-icon" data-help="__MSG_usernameHelpText__" data-i18n-help="usernameHelpText">?</span>
                 </div>
                 <input type="text" id="username" required>
 
                 <div class="label-with-help">
-                    <label for="apiToken">API Token (*)</label>
-                    <span class="help-icon" data-help="Your Hypothes.is API token. You can find this in your Hypothes.is developer settings.">?</span>
+                    <label for="apiToken" data-i18n="apiToken">__MSG_apiToken__</label>
+                    <span class="help-icon" data-help="__MSG_hypothesisApiTokenHelpText__" data-i18n-help="hypothesisApiTokenHelpText">?</span>
                 </div>
                 <input type="text" id="apiToken" required>
 
                 <div class="label-with-help">
-                    <label for="hypothesisColor">Highlight Color</label>
-                    <span class="help-icon" data-help="Choose a color for Hypothesis search results">?</span>
+                    <label for="hypothesisColor" data-i18n="highlightColor">__MSG_highlightColor__</label>
+                    <span class="help-icon" data-help="__MSG_hypothesisHighlightHelpText__" data-i18n-help="hypothesisHighlightHelpText">?</span>
                 </div>
                 <input type="color" id="hypothesisColor" value="#bd1c2b">
 
                 <div class="label-with-help">
-                    <label for="excludeTags">Exclude Tags (comma-separated)</label>
-                    <span class="help-icon" data-help="Annotations with these tags will be excluded from search results">?</span>
+                    <label for="excludeTags" data-i18n="excludeTags">__MSG_excludeTags__</label>
+                    <span class="help-icon" data-help="__MSG_excludeTagsHelpText__" data-i18n-help="excludeTagsHelpText">?</span>
                 </div>
                 <input type="text" id="excludeTags" placeholder="tag1, tag2, tag3">
 
                 <div class="checkbox-container">
                     <input type="checkbox" id="mergeByUri">
-                    <label for="mergeByUri">Merge Annotations By URI</label>
-                    <span class="help-icon" data-help="When enabled, multiple annotations from the same URL will be merged into a single result">?</span>
+                    <label for="mergeByUri" data-i18n="mergeByUri">__MSG_mergeByUri__</label>
+                    <span class="help-icon" data-help="__MSG_mergeByUriHelpText__" data-i18n-help="mergeByUriHelpText">?</span>
                 </div>
             </div>
 
             <!-- Linkwarden Settings Tab -->
             <div id="linkwarden" class="tab-content">
                 <div class="label-with-help">
-                    <label for="linkwardenUrl">Linkwarden URL (*)</label>
-                    <span class="help-icon" data-help="Your Linkwarden instance URL (e.g., https://cloud.linkwarden.app)">?</span>
+                    <label for="linkwardenUrl" data-i18n="linkwardenUrl">__MSG_linkwardenUrl__</label>
+                    <span class="help-icon" data-help="__MSG_linkwardenUrlHelpText__" data-i18n-help="linkwardenUrlHelpText">?</span>
                 </div>
                 <input type="text" id="linkwardenUrl" required>
 
                 <div class="label-with-help">
-                    <label for="linkwardenApiToken">API Token (*)</label>
-                    <span class="help-icon" data-help="Your Linkwarden API token">?</span>
+                    <label for="linkwardenApiToken" data-i18n="apiToken">__MSG_apiToken__</label>
+                    <span class="help-icon" data-help="__MSG_linkwardenApiTokenHelpText__" data-i18n-help="linkwardenApiTokenHelpText">?</span>
                 </div>
                 <input type="text" id="linkwardenApiToken" required>
 
                 <div class="label-with-help">
-                    <label for="linkwardenColor">Highlight Color</label>
-                    <span class="help-icon" data-help="Choose a color for Linkwarden search results">?</span>
+                    <label for="linkwardenColor" data-i18n="highlightColor">__MSG_highlightColor__</label>
+                    <span class="help-icon" data-help="__MSG_linkwardenHighlightHelpText__" data-i18n-help="linkwardenHighlightHelpText">?</span>
                 </div>
                 <input type="color" id="linkwardenColor" value="#2e7d32">
             </div>
 
 
 
-            <button type="submit">Save Settings</button>
+            <button type="submit" data-i18n="saveSettings">__MSG_saveSettings__</button>
         </form>
         <div id="status" class="status"></div>
     </div>

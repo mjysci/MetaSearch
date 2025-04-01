@@ -1,0 +1,154 @@
+{
+  "extensionName": {
+    "message": "MetaSearch",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Integrate user's private search results across multiple search engines",
+    "description": "Description of the extension"
+  },
+  "settingsTitle": {
+    "message": "MetaSearch Settings",
+    "description": "Title of the settings page"
+  },
+  "tabPreferences": {
+    "message": "Prefs.",
+    "description": "Preferences tab label"
+  },
+  "tabHypothesis": {
+    "message": "Hypothesis",
+    "description": "Hypothesis tab label"
+  },
+  "tabLinkwarden": {
+    "message": "Linkwarden",
+    "description": "Linkwarden tab label"
+  },
+  "enable": {
+    "message": "Enable",
+    "description": "Enable label"
+  },
+  "enableHelpText": {
+    "message": "Enable or disable search integrations",
+    "description": "Help text for enable option"
+  },
+  "priority": {
+    "message": "Priority",
+    "description": "Priority label"
+  },
+  "priorityHelpText": {
+    "message": "Priority: Higher number means results will appear first (1-10)",
+    "description": "Help text for priority option"
+  },
+  "sortingMethod": {
+    "message": "Sorting Method",
+    "description": "Sorting method label"
+  },
+  "sortingMethodHelpText": {
+    "message": "Choose how to sort results from different services based on their priorities",
+    "description": "Help text for sorting method"
+  },
+  "interleavingSorting": {
+    "message": "Interleaving (a1, a1, b2, b2...)",
+    "description": "Interleaving sorting option"
+  },
+  "compoundSorting": {
+    "message": "Compound (a1, a2..., b1, b2...)",
+    "description": "Compound sorting option"
+  },
+  "themeMode": {
+    "message": "Theme Mode",
+    "description": "Theme mode label"
+  },
+  "themeModeHelpText": {
+    "message": "Choose how the extension's appearance should be determined",
+    "description": "Help text for theme mode"
+  },
+  "themeSystem": {
+    "message": "Follow System",
+    "description": "System theme option"
+  },
+  "themeLight": {
+    "message": "Light",
+    "description": "Light theme option"
+  },
+  "themeDark": {
+    "message": "Dark",
+    "description": "Dark theme option"
+  },
+  "username": {
+    "message": "Username (*)",
+    "description": "Username label"
+  },
+  "usernameHelpText": {
+    "message": "Your Hypothes.is username",
+    "description": "Help text for username"
+  },
+  "apiToken": {
+    "message": "API Token (*)",
+    "description": "API token label"
+  },
+  "hypothesisApiTokenHelpText": {
+    "message": "Your Hypothes.is API token. You can find this in your Hypothes.is developer settings.",
+    "description": "Help text for Hypothesis API token"
+  },
+  "highlightColor": {
+    "message": "Highlight Color",
+    "description": "Highlight color label"
+  },
+  "hypothesisHighlightHelpText": {
+    "message": "Choose a color for Hypothesis search results",
+    "description": "Help text for Hypothesis highlight color"
+  },
+  "excludeTags": {
+    "message": "Exclude Tags (comma-separated)",
+    "description": "Exclude tags label"
+  },
+  "excludeTagsHelpText": {
+    "message": "Annotations with these tags will be excluded from search results",
+    "description": "Help text for exclude tags"
+  },
+  "mergeByUri": {
+    "message": "Merge Annotations By URI",
+    "description": "Merge by URI label"
+  },
+  "mergeByUriHelpText": {
+    "message": "When enabled, multiple annotations from the same URL will be merged into a single result",
+    "description": "Help text for merge by URI"
+  },
+  "linkwardenUrl": {
+    "message": "Linkwarden URL (*)",
+    "description": "Linkwarden URL label"
+  },
+  "linkwardenUrlHelpText": {
+    "message": "Your Linkwarden instance URL (e.g., https://cloud.linkwarden.app)",
+    "description": "Help text for Linkwarden URL"
+  },
+  "linkwardenApiTokenHelpText": {
+    "message": "Your Linkwarden API token",
+    "description": "Help text for Linkwarden API token"
+  },
+  "linkwardenHighlightHelpText": {
+    "message": "Choose a color for Linkwarden search results",
+    "description": "Help text for Linkwarden highlight color"
+  },
+  "saveSettings": {
+    "message": "Save Settings",
+    "description": "Save settings button text"
+  },
+  "settingsSaved": {
+    "message": "Settings saved successfully!",
+    "description": "Settings saved message"
+  },
+  "hypothesisRequiredError": {
+    "message": "Hypothesis username and API token are required when the service is enabled",
+    "description": "Error message for missing Hypothesis credentials"
+  },
+  "linkwardenRequiredError": {
+    "message": "Linkwarden URL and API token are required when the service is enabled",
+    "description": "Error message for missing Linkwarden credentials"
+  },
+  "loading": {
+    "message": "Loading results...",
+    "description": "Loading message"
+  }
+}

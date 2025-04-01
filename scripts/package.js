@@ -56,6 +56,23 @@ const createChromePackage = () => {
             }
         });
     }
+    
+    // Add _locales directory
+    const localesDir = path.join(__dirname, '../_locales');
+    if (fs.existsSync(localesDir)) {
+        const localeDirs = fs.readdirSync(localesDir);
+        localeDirs.forEach(localeDir => {
+            const localePath = path.join(localesDir, localeDir);
+            if (fs.statSync(localePath).isDirectory()) {
+                const localeFiles = fs.readdirSync(localePath);
+                localeFiles.forEach(file => {
+                    if (file === 'messages.json') {
+                        zip.addLocalFile(path.join(localePath, file), `_locales/${localeDir}`);
+                    }
+                });
+            }
+        });
+    }
 
     // Create dist directory if it doesn't exist
     if (!fs.existsSync(distDir)) {
@@ -120,6 +137,23 @@ const createFirefoxPackage = () => {
         iconFiles.forEach(file => {
             if (file.endsWith('.png')) {
                 zip.addLocalFile(path.join(iconsDir, file), 'icons');
+            }
+        });
+    }
+    
+    // Add _locales directory
+    const localesDir = path.join(__dirname, '../_locales');
+    if (fs.existsSync(localesDir)) {
+        const localeDirs = fs.readdirSync(localesDir);
+        localeDirs.forEach(localeDir => {
+            const localePath = path.join(localesDir, localeDir);
+            if (fs.statSync(localePath).isDirectory()) {
+                const localeFiles = fs.readdirSync(localePath);
+                localeFiles.forEach(file => {
+                    if (file === 'messages.json') {
+                        zip.addLocalFile(path.join(localePath, file), `_locales/${localeDir}`);
+                    }
+                });
             }
         });
     }

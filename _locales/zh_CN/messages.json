@@ -1,0 +1,154 @@
+{
+  "extensionName": {
+    "message": "MetaSearch",
+    "description": "扩展名称"
+  },
+  "extensionDescription": {
+    "message": "在多个搜索引擎中集成用户的私人搜索结果",
+    "description": "扩展描述"
+  },
+  "settingsTitle": {
+    "message": "MetaSearch 设置",
+    "description": "设置页面标题"
+  },
+  "tabPreferences": {
+    "message": "首选项",
+    "description": "首选项标签标签"
+  },
+  "tabHypothesis": {
+    "message": "Hypothesis",
+    "description": "Hypothesis标签标签"
+  },
+  "tabLinkwarden": {
+    "message": "Linkwarden",
+    "description": "Linkwarden标签标签"
+  },
+  "enable": {
+    "message": "启用",
+    "description": "启用标签"
+  },
+  "enableHelpText": {
+    "message": "启用或禁用搜索集成",
+    "description": "启用选项的帮助文本"
+  },
+  "priority": {
+    "message": "优先级",
+    "description": "优先级标签"
+  },
+  "priorityHelpText": {
+    "message": "优先级：数字越大，结果显示越靠前（1-10）",
+    "description": "优先级选项的帮助文本"
+  },
+  "sortingMethod": {
+    "message": "排序方法",
+    "description": "排序方法标签"
+  },
+  "sortingMethodHelpText": {
+    "message": "选择如何根据优先级对不同服务的结果进行排序",
+    "description": "排序方法的帮助文本"
+  },
+  "interleavingSorting": {
+    "message": "交错排序 (a1, a1, b2, b2...)",
+    "description": "交错排序选项"
+  },
+  "compoundSorting": {
+    "message": "复合排序 (a1, a2..., b1, b2...)",
+    "description": "复合排序选项"
+  },
+  "themeMode": {
+    "message": "主题模式",
+    "description": "主题模式标签"
+  },
+  "themeModeHelpText": {
+    "message": "选择如何确定扩展的外观",
+    "description": "主题模式的帮助文本"
+  },
+  "themeSystem": {
+    "message": "跟随系统",
+    "description": "系统主题选项"
+  },
+  "themeLight": {
+    "message": "浅色",
+    "description": "浅色主题选项"
+  },
+  "themeDark": {
+    "message": "深色",
+    "description": "深色主题选项"
+  },
+  "username": {
+    "message": "用户名 (*)",
+    "description": "用户名标签"
+  },
+  "usernameHelpText": {
+    "message": "您的 Hypothes.is 用户名",
+    "description": "用户名的帮助文本"
+  },
+  "apiToken": {
+    "message": "API 令牌 (*)",
+    "description": "API 令牌标签"
+  },
+  "hypothesisApiTokenHelpText": {
+    "message": "您的 Hypothes.is API 令牌。您可以在 Hypothes.is 开发者设置中找到它。",
+    "description": "Hypothesis API 令牌的帮助文本"
+  },
+  "highlightColor": {
+    "message": "高亮颜色",
+    "description": "高亮颜色标签"
+  },
+  "hypothesisHighlightHelpText": {
+    "message": "为 Hypothesis 搜索结果选择颜色",
+    "description": "Hypothesis 高亮颜色的帮助文本"
+  },
+  "excludeTags": {
+    "message": "排除标签（逗号分隔）",
+    "description": "排除标签标签"
+  },
+  "excludeTagsHelpText": {
+    "message": "带有这些标签的注释将从搜索结果中排除",
+    "description": "排除标签的帮助文本"
+  },
+  "mergeByUri": {
+    "message": "按 URI 合并注释",
+    "description": "按 URI 合并标签"
+  },
+  "mergeByUriHelpText": {
+    "message": "启用后，来自同一 URL 的多个注释将合并为单个结果",
+    "description": "按 URI 合并的帮助文本"
+  },
+  "linkwardenUrl": {
+    "message": "Linkwarden URL (*)",
+    "description": "Linkwarden URL 标签"
+  },
+  "linkwardenUrlHelpText": {
+    "message": "您的 Linkwarden 实例 URL（例如，https://cloud.linkwarden.app）",
+    "description": "Linkwarden URL 的帮助文本"
+  },
+  "linkwardenApiTokenHelpText": {
+    "message": "您的 Linkwarden API 令牌",
+    "description": "Linkwarden API 令牌的帮助文本"
+  },
+  "linkwardenHighlightHelpText": {
+    "message": "为 Linkwarden 搜索结果选择颜色",
+    "description": "Linkwarden 高亮颜色的帮助文本"
+  },
+  "saveSettings": {
+    "message": "保存设置",
+    "description": "保存设置按钮文本"
+  },
+  "settingsSaved": {
+    "message": "设置保存成功！",
+    "description": "设置已保存消息"
+  },
+  "hypothesisRequiredError": {
+    "message": "启用服务时，Hypothesis 用户名和 API 令牌是必需的",
+    "description": "缺少 Hypothesis 凭据的错误消息"
+  },
+  "linkwardenRequiredError": {
+    "message": "启用服务时，Linkwarden URL 和 API 令牌是必需的",
+    "description": "缺少 Linkwarden 凭据的错误消息"
+  },
+  "loading": {
+    "message": "正在加载结果...",
+    "description": "加载消息"
+  }
+}

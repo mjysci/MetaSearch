@@ -1,11 +1,35 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // Initialize i18n
+    const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
+    
+    // Function to get localized strings
+    const getMessage = (messageName) => {
+        return browserAPI.i18n.getMessage(messageName);
+    };
+    
+    // Replace all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const messageName = element.getAttribute('data-i18n');
+        element.textContent = getMessage(messageName);
+    });
+    
+    // Replace all help tooltips with data-i18n-help attribute
+    document.querySelectorAll('[data-i18n-help]').forEach(element => {
+        const messageName = element.getAttribute('data-i18n-help');
+        element.setAttribute('data-help', getMessage(messageName));
+    });
+    
+    // Replace title if it has data-i18n attribute
+    if (document.title && document.querySelector('title').hasAttribute('data-i18n')) {
+        const messageName = document.querySelector('title').getAttribute('data-i18n');
+        document.title = getMessage(messageName);
+    }
     const form = document.getElementById('settingsForm');
     const status = document.getElementById('status');
     const tabs = document.querySelectorAll('.tab');
     const tabContents = document.querySelectorAll('.tab-content');
 
-    // Use browser API for cross-browser compatibility
-    const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
+    // Use browser API for cross-browser compatibility (already defined above)
 
     // Tab switching functionality
     tabs.forEach(tab => {
@@ -120,7 +144,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         let hasError = false;
         if (hypothesisEnabled) {
             if (!username || !apiToken) {
-                status.textContent = 'Hypothesis username and API token are required when the service is enabled';
+                status.textContent = getMessage('hypothesisRequiredError');
                 status.className = 'status error';
                 hasError = true;
             }
@@ -128,14 +152,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (linkwardenEnabled) {
             if (!linkwardenUrl || !linkwardenApiToken) {
-                status.textContent = 'Linkwarden URL and API token are required when the service is enabled';
+                status.textContent = getMessage('linkwardenRequiredError');
                 status.className = 'status error';
                 hasError = true;
             }
         }
 
         if (!hasError) {
-            status.textContent = 'Settings saved successfully!';
+            status.textContent = getMessage('settingsSaved');
             status.className = 'status success';
             setTimeout(() => {
                 status.textContent = '';
