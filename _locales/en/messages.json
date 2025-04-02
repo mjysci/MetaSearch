@@ -23,6 +23,30 @@
     "message": "Linkwarden",
     "description": "Linkwarden tab label"
   },
+  "tabLinkding": {
+    "message": "Linkding",
+    "description": "Tab title for Linkding settings"
+  },
+  "linkdingUrl": {
+    "message": "Linkding URL",
+    "description": "Label for Linkding URL field"
+  },
+  "linkdingUrlHelpText": {
+    "message": "The URL of your Linkding instance (e.g., https://linkding.example.com)",
+    "description": "Help text for Linkding URL field"
+  },
+  "linkdingApiTokenHelpText": {
+    "message": "Your Linkding API token. You can find this in your Linkding settings.",
+    "description": "Help text for Linkding API token field"
+  },
+  "linkdingHighlightHelpText": {
+    "message": "The color used to highlight Linkding results",
+    "description": "Help text for Linkding highlight color field"
+  },
+  "linkdingRequiredError": {
+    "message": "Please enter your Linkding URL and API token.",
+    "description": "Error message for missing Linkding credentials"
+  },
   "enable": {
     "message": "Enable",
     "description": "Enable label"

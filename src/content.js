@@ -1,5 +1,6 @@
 import { fetchHypothesisResults } from './services/hypothesis.js';
 import { fetchLinkwardenItems } from './services/linkwarden.js';
+import { fetchLinkdingItems } from './services/linkding.js';
 import { sortResults } from './services/sorting.js';
 
 let currentPage = 1;
@@ -13,8 +14,10 @@ const getEnabledServices = async () => {
     const result = await browserAPI.storage.sync.get({
         enableHypothesis: false,
         enableLinkwarden: false,
+        enableLinkding: false,
         hypothesisPriority: 1,
-        linkwardenPriority: 1
+        linkwardenPriority: 1,
+        linkdingPriority: 1
     });
     return result;
 };
@@ -195,6 +198,26 @@ const handleSearchResults = async (query) => {
             })));
         }
     }
+    
+    if (services.enableLinkding) {
+        const result = await fetchLinkdingItems(query);
+        if (result.error === 'credentials_missing') {
+            const contentDiv = document.getElementById('items-content');
+            if (contentDiv) {
+                contentDiv.innerHTML = '<p>Please configure your Linkding URL and API token.</p>';
+            }
+            browserAPI.runtime.openOptionsPage();
+            return;
+        }
+        if (result.error === 'fetch_failed') {
+            hasError = true;
+        } else if (result.items) {
+            allItems = allItems.concat(result.items.map(item => ({
+                ...item,
+                priority: services.linkdingPriority
+            })));
+        }
+    }
 
     if (hasError) {
         const contentDiv = document.getElementById('items-content');
@@ -210,7 +233,8 @@ const handleSearchResults = async (query) => {
     // Create priorities object for sorting
     const priorities = {
         hypothesis: services.hypothesisPriority,
-        linkwarden: services.linkwardenPriority
+        linkwarden: services.linkwardenPriority,
+        linkding: services.linkdingPriority
     };
     
     // Sort items using the selected method

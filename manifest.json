@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "__MSG_extensionName__",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "__MSG_extensionDescription__",
   "default_locale": "en",
   "permissions": [
@@ -19,7 +19,7 @@
     "https://www.baidu.com/*",
     "https://search.brave.com/*",
     "https://yandex.com/*",
-    "https://*/api/v1/*",
+    "https://*/api/*",
     "https://*/search*"
   ],
   "action": {

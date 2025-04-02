@@ -344,6 +344,7 @@
             <button class="tab active" data-tab="services" data-i18n="tabPreferences">__MSG_tabPreferences__</button>
             <button class="tab" data-tab="hypothesis" data-i18n="tabHypothesis">__MSG_tabHypothesis__</button>
             <button class="tab" data-tab="linkwarden" data-i18n="tabLinkwarden">__MSG_tabLinkwarden__</button>
+            <button class="tab" data-tab="linkding" data-i18n="tabLinkding">__MSG_tabLinkding__</button>
         </div>
 
         <form id="settingsForm">
@@ -383,6 +384,17 @@
                             </td>
                             <td>
                                 <input type="number" id="linkwardenPriority" min="1" max="10" value="1">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" id="enableLinkding">
+                                    <label for="enableLinkding">Linkding</label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="number" id="linkdingPriority" min="1" max="10" value="1">
                             </td>
                         </tr>
                     </tbody>
@@ -464,6 +476,27 @@
                     <span class="help-icon" data-help="__MSG_linkwardenHighlightHelpText__" data-i18n-help="linkwardenHighlightHelpText">?</span>
                 </div>
                 <input type="color" id="linkwardenColor" value="#2e7d32">
+            </div>
+            
+            <!-- Linkding Settings Tab -->
+            <div id="linkding" class="tab-content">
+                <div class="label-with-help">
+                    <label for="linkdingUrl" data-i18n="linkdingUrl">__MSG_linkdingUrl__</label>
+                    <span class="help-icon" data-help="__MSG_linkdingUrlHelpText__" data-i18n-help="linkdingUrlHelpText">?</span>
+                </div>
+                <input type="text" id="linkdingUrl" required>
+
+                <div class="label-with-help">
+                    <label for="linkdingApiToken" data-i18n="apiToken">__MSG_apiToken__</label>
+                    <span class="help-icon" data-help="__MSG_linkdingApiTokenHelpText__" data-i18n-help="linkdingApiTokenHelpText">?</span>
+                </div>
+                <input type="text" id="linkdingApiToken" required>
+
+                <div class="label-with-help">
+                    <label for="linkdingColor" data-i18n="highlightColor">__MSG_highlightColor__</label>
+                    <span class="help-icon" data-help="__MSG_linkdingHighlightHelpText__" data-i18n-help="linkdingHighlightHelpText">?</span>
+                </div>
+                <input type="color" id="linkdingColor" value="#5856e0">
             </div>
 
 
