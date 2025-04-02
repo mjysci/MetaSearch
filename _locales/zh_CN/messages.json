@@ -23,6 +23,30 @@
     "message": "Linkwarden",
     "description": "Linkwarden标签标签"
   },
+  "tabLinkding": {
+    "message": "Linkding",
+    "description": "Linkding设置标签"
+  },
+  "linkdingUrl": {
+    "message": "Linkding URL",
+    "description": "Linkding URL标签"
+  },
+  "linkdingUrlHelpText": {
+    "message": "您的Linkding实例URL（例如：https://linkding.example.com）",
+    "description": "Linkding URL字段的帮助文本"
+  },
+  "linkdingApiTokenHelpText": {
+    "message": "您的Linkding API令牌。您可以在Linkding设置中找到。",
+    "description": "Linkding API令牌字段的帮助文本"
+  },
+  "linkdingHighlightHelpText": {
+    "message": "用于高亮Linkding搜索结果的颜色",
+    "description": "Linkding高亮颜色字段的帮助文本"
+  },
+  "linkdingRequiredError": {
+    "message": "请输入Linkding URL和API令牌。",
+    "description": "缺少Linkding凭据的错误消息"
+  },
   "enable": {
     "message": "启用",
     "description": "启用标签"

@@ -8,6 +8,7 @@
     --md-shadow-2: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
     --hypothesis-color: #bd1c2b;
     --linkwarden-color: #374850;
+    --linkding-color: #5856e0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -65,6 +66,10 @@
     border-left: 3px solid var(--linkwarden-color);
 }
 
+.item-div[data-source="linkding"] {
+    border-left: 3px solid var(--linkding-color);
+}
+
 .item-div[data-source="hypothesis"]:hover {
     background-color: rgba(189, 28, 43, 0.04);
     border-color: var(--hypothesis-color);
@@ -74,6 +79,12 @@
 .item-div[data-source="linkwarden"]:hover {
     background-color: rgba(46, 125, 50, 0.04);
     border-color: var(--linkwarden-color);
+    box-shadow: var(--md-shadow-1);
+}
+
+.item-div[data-source="linkding"]:hover {
+    background-color: rgba(26, 115, 232, 0.04);
+    border-color: var(--linkding-color);
     box-shadow: var(--md-shadow-1);
 }
 
@@ -205,6 +216,10 @@
 
 .item-div[data-source="linkwarden"] {
     border-left: 3px solid var(--linkwarden-color);
+}
+
+.item-div[data-source="linkding"] {
+    border-left: 3px solid var(--linkding-color);
 }
 
 .item-div[data-source="hypothesis"]:hover {
